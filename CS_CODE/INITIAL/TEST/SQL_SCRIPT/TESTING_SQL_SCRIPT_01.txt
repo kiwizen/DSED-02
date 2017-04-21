@@ -1,0 +1,10 @@
+﻿/****** SQL Script to insert a record into table  ******/
+INSERT INTO [dbo].[TestTable] ([NAME],[TEXT]) VALUES ( N'3Name', N'3Text')
+
+
+/****** SQL Script to update a record into table  ******/
+UPDATE [dbo].[TestTable] SET [NAME] = '0AName2',[TEXT] = 'AText2' WHERE ID = 2
+
+
+/****** SQL Script to delete a record into table  ******/
+DELETE FROM [dbo].[TestTable] WHERE ID=2

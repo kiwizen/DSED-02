@@ -5,15 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestTableAppWPF"
         mc:Ignorable="d"
-        Title="Main Window" Height="350" Width="525">
+        Title="Main Window" Height="640" Width="800">
     <Grid>
-        <ListView x:Name="MyTestTable"  HorizontalAlignment="Left" Height="177" Margin="35,26,0,0" VerticalAlignment="Top" Width="144">
+        <ListView x:Name="MyTestTable"  HorizontalAlignment="Left" Height="200" 
+                         Margin="30,20,0,0" VerticalAlignment="Top" Width="379"
+                  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID_Col}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name_Col}"/>
+                    <GridViewColumn Header="Text" DisplayMemberBinding="{Binding Text_Col}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <GroupBox Header="Record Information" HorizontalAlignment="Left" 
+                  Height="141" Margin="438,26,0,0" 
+                  VerticalAlignment="Top" Width="250">
+            <Grid x:Name="GridData" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="227" Margin="10,10,-0.2,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
 
+                <Label Content="ID:" Height="30" Width="40" Margin="10,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Label Content="Name:" Height="30" Width="40" Margin="10,38,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Label Content="Text:" Height="30" Width="40" Margin="10,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2"/>
+
+                <TextBox x:Name="textBoxID"  Height="30" Width="80" Margin="50,10,0,0" Text="TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"/>
+                <TextBox x:Name="textBoxName" Height="30" Width="80" Margin="50,40,0,0" Text="TextBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBoxText" Height="30" Width="80" Margin="50,70,0,0" Text="TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2"/>
+
+                <Button Content="Ok" HorizontalAlignment="Left" Height="30" Margin="151,10,0,0" VerticalAlignment="Top" Width="66"
+                        Click="Ok_Click"/>
+                <Button Content="Cancel" HorizontalAlignment="Left" Height="30" Margin="151,70,0,0" VerticalAlignment="Top" Width="66" Grid.RowSpan="2"
+                        Click="Cancel_Click"/>
+            </Grid>
+        </GroupBox>
+        <Grid x:Name="GridControlButton" HorizontalAlignment="Left" Height="45" Margin="462,181,0,0" VerticalAlignment="Top" Width="204">
+            <Button Content="New" Height="26" Width="50" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Click="New_Click"/>
+            <Button Content="Edit" Height="26" Width="50" Margin="70,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Click="Edit_Click"/>
+            <Button Content="Deleted" Height="26" Width="65" Margin="130,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Click="Deleted_Click"/>
+        </Grid>
+        <Button Content="Execute" HorizontalAlignment="Left" Height="33" Margin="438,263,0,0" VerticalAlignment="Top" Width="96"
+                Click="Execute_Click" RenderTransformOrigin="-0.972,0.597"/>
+        <TextBox x:Name="textBoxSQL"    HorizontalAlignment="Left" Height="179" Margin="30,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="379"/>
     </Grid>
 </Window>

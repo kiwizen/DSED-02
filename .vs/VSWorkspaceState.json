@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DATA",
-    "\\SQL"
+    "\\CS_CODE",
+    "\\CS_CODE\\INITIAL",
+    "\\CS_CODE\\INITIAL\\TEST",
+    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF"
   ],
-  "SelectedNode": "\\SQL",
+  "SelectedNode": "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF\\TestTableAppWPF.sln",
   "PreviewInSolutionExplorer": false
 }

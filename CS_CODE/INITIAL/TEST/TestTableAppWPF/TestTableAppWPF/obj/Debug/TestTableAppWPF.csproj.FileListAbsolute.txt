@@ -1,0 +1,14 @@
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.exe.config
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.exe
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.pdb
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.csprojResolveAssemblyReference.cache
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\MainWindow.g.cs
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\App.g.cs
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF_MarkupCompile.cache
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF_MarkupCompile.lref
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\MainWindow.baml
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.g.resources
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.Properties.Resources.resources
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.csproj.GenerateResource.Cache
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.exe
+C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.pdb
