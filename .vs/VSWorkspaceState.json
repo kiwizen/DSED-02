@@ -4,8 +4,9 @@
     "\\CS_CODE",
     "\\CS_CODE\\INITIAL",
     "\\CS_CODE\\INITIAL\\TEST",
-    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF"
+    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF",
+    "\\DATA"
   ],
-  "SelectedNode": "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF\\TestTableAppWPF.sln",
+  "SelectedNode": "\\DATA",
   "PreviewInSolutionExplorer": false
 }
