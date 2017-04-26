@@ -12,3 +12,17 @@ C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\Tes
 C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.csproj.GenerateResource.Cache
 C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.exe
 C:\Users\EliteBook8730w\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.pdb
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.exe.config
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.exe
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\bin\Debug\TestTableAppWPF.pdb
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.csprojResolveAssemblyReference.cache
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\MainWindow.g.cs
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\App.g.cs
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF_MarkupCompile.cache
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF_MarkupCompile.lref
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\MainWindow.baml
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.g.resources
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.Properties.Resources.resources
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.csproj.GenerateResource.Cache
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.exe
+C:\Users\kiwizen\Desktop\DSED-02\CS_CODE\INITIAL\TEST\TestTableAppWPF\TestTableAppWPF\obj\Debug\TestTableAppWPF.pdb

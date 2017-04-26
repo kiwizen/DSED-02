@@ -21,13 +21,16 @@ namespace TestTableAppWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        /*
         private string ConnectionString = @"Server=tcp:kiwizen-dsed.database.windows.net,1433;"+
                                             "Initial Catalog=DSED;Persist Security Info=False;"+
                                             "User ID=kiwizen-dsed;Password=Monday99;"+
                                             "MultipleActiveResultSets=False;Encrypt=True;"+
                                             "TrustServerCertificate=False;Connection Timeout=30;";
-
+                                            Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Test;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+        */
+        //private string ConnectionString = ;
+        private string ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public MainWindow()
         {
             InitializeComponent();
@@ -56,7 +59,7 @@ namespace TestTableAppWPF
                         {
                             MyTestTable.Items.Add( new {
                                 ID_Col = reader["ID"].ToString(),
-                                Name_Col = reader["NAME"].ToString(),
+                                Name_Col = reader["TITLE"].ToString(),
                                 Text_Col = reader["TEXT"].ToString()
                             });
                             //if (recordHandler != null)
@@ -65,9 +68,9 @@ namespace TestTableAppWPF
                     }
                     connection.Close();
                 }
-                catch
+                catch(Exception Error)
                 {
-                    throw new Exception("SQL Excution Error");
+                    throw new Exception("SQL Excution Error" + Error);
                 }
                 finally
                 {
