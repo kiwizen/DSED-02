@@ -1,0 +1,24 @@
+﻿<Window x:Class="MovieRentalWPF.IssueMovieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieRentalWPF"
+        mc:Ignorable="d"
+        Title="Issue Movie Window" Height="600" Width="800">
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="527" Margin="10,10,0,0" VerticalAlignment="Top" Width="338">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title"/>
+                    <GridViewColumn Header="Year"/>
+                    <GridViewColumn Header="Genre"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GroupBox Header="" HorizontalAlignment="Left" Height="376" Margin="372,9,0,0" VerticalAlignment="Top" Width="386"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="598,483,0,0" VerticalAlignment="Top" Width="160" FontSize="16"
+                Click="ExitWindow"/>
+
+    </Grid>
+</Window>
