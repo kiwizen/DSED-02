@@ -32,7 +32,8 @@ namespace RentVideoWPF.SERVICE
                             {
                                 ID_Title = reader["Title"].ToString(),
                                 ID_Year = reader["Year"].ToString(),
-                                ID_Copies = reader["Copies"].ToString()
+                                ID_Copies = reader["Copies"].ToString(),
+                                ID_Genre = reader["Genre"].ToString()
                             });
 
                         }

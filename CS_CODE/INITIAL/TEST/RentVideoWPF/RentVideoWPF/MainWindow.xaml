@@ -8,12 +8,13 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid Margin="0,0,-144,-148">
         <ListView x:Name="ViewTable"
-            HorizontalAlignment="Left" Height="207" Margin="23,26,0,0" VerticalAlignment="Top" Width="457">
+            HorizontalAlignment="Left" Height="207" Margin="23,26,0,0" VerticalAlignment="Top" Width="638">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title"  DisplayMemberBinding="{Binding ID_Title}"/>
                     <GridViewColumn Header="Year"  DisplayMemberBinding="{Binding ID_Year}"/>
                     <GridViewColumn Header="Copies"  DisplayMemberBinding="{Binding ID_Copies}"/>
+                    <GridViewColumn Header="Genre"  DisplayMemberBinding="{Binding ID_Genre}"/>
                 </GridView>
             </ListView.View>
         </ListView>
