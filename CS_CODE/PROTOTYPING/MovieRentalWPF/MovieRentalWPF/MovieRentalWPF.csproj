@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -56,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SQL\CustomersSQLClass.cs" />
+    <Compile Include="SQL\MoviesSQLClass.cs" />
+    <Compile Include="SQL\RentedMoviesSQLClass.cs" />
+    <Compile Include="SQL\SQLCommandClass.cs" />
     <Page Include="CustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +80,9 @@
     <Compile Include="CustomerWindow.xaml.cs">
       <DependentUpon>CustomerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DAO\CustomerClass.cs" />
+    <Compile Include="DAO\MovieClass.cs" />
+    <Compile Include="DAO\RentedMoviesClass.cs" />
     <Compile Include="IssueMovieWindow.xaml.cs">
       <DependentUpon>IssueMovieWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +96,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ViewModelClass.cs" />
     <Compile Include="MovieWindow.xaml.cs">
       <DependentUpon>MovieWindow.xaml</DependentUpon>
     </Compile>
@@ -116,5 +125,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

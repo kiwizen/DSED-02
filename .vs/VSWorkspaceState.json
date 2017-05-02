@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\CS_CODE",
+    "\\CS_CODE\\INITIAL",
     "\\CS_CODE\\INITIAL\\FilePathConsoleApp",
     "\\CS_CODE\\INITIAL\\TEST",
-    "\\CS_CODE\\INITIAL\\TEST\\RentVideoWPF"
+    "\\CS_CODE\\INITIAL\\TEST\\RentVideoWPF",
+    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF"
   ],
+  "SelectedNode": "\\CS_CODE\\INITIAL\\TEST\\RentVideoWPF\\RentVideoWPF.sln",
   "PreviewInSolutionExplorer": false
 }

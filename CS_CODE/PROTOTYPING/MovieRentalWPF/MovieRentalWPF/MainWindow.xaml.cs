@@ -20,21 +20,39 @@ namespace MovieRentalWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public delegate void ExitWindowDelegate();
+        public ExitWindowDelegate ExitMethod = null;
+
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void OpenCustomerScreen(object sender, RoutedEventArgs e)
+        private void OpenCustomerWindow(object sender, RoutedEventArgs e)
         {
             CustomerWindow window = new CustomerWindow();
+            this.ExitMethod += window.Close;
             window.Show();
         }
 
         private void IssueMovie(object sender, RoutedEventArgs e)
         {
             IssueMovieWindow window = new IssueMovieWindow();
+            this.ExitMethod += window.Close;
+            window.Show();
+        }
+
+        private void ExitApp(object sender, RoutedEventArgs e)
+        {
+            if(ExitMethod != null)   ExitMethod.Invoke();
+            this.Close();
+        }
+
+        private void OpenMovieWindow(object sender, RoutedEventArgs e)
+        {
+            MovieWindow window = new MovieWindow();
+            this.ExitMethod += window.Close;
             window.Show();
         }
     }

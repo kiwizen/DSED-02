@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRentalWPF"
         mc:Ignorable="d"
-        Title="Customer Window" Height="300" Width="300">
+        Title="Customer Window" Height="600" Width="800">
     <Grid>
-        
+        <ListView x:Name="ViewTable" 
+            HorizontalAlignment="Left" Height="527" Margin="20,12,0,0" VerticalAlignment="Top" Width="338" MouseLeftButtonUp="SelectedCustomerClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding ID_FirstName}"/>
+                    <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding ID_SurName}"/>
+                    <GridViewColumn Header="Contact No" DisplayMemberBinding="{Binding ID_ContactNo}"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding ID_Address}"/>
+                    <GridViewColumn Header="Cust_ID" DisplayMemberBinding="{Binding ID}" Width="0"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="608,485,0,0" VerticalAlignment="Top" Width="160" FontSize="16"
+            Click="ExitWindow"/>
+        <Grid x:Name="EditCustomerGrid" HorizontalAlignment="Left" Height="318" Margin="382,12,0,0" VerticalAlignment="Top" Width="242" IsEnabled="False">
+            <Label Content="First Name :" HorizontalAlignment="Left" Height="27" Margin="21,16,0,0" VerticalAlignment="Top" Width="78"/>
+            <Label Content="Last Name :" HorizontalAlignment="Left" Height="34" Margin="21,43,0,0" VerticalAlignment="Top" Width="87"/>
+            <Label Content="Address:" HorizontalAlignment="Left" Height="28" Margin="21,77,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content="Contact No:" HorizontalAlignment="Left" Height="25" Margin="21,240,0,0" VerticalAlignment="Top" Width="78"/>
+            <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="99,20,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
+            <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="24" Margin="100,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="130" Margin="21,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="206"/>
+            <TextBox x:Name="txtContactNo" HorizontalAlignment="Left" Height="24" Margin="99,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="128"/>
+            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="14" Margin="25,311,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
+                                    IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
+            <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Height="26" Margin="21,280,0,0" VerticalAlignment="Top" Width="78" Click="Save_Click"/>
+            <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="108,280,0,0" VerticalAlignment="Top" Width="83" Click="Cancel_Click"/>
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="331" Margin="371,5,0,0" VerticalAlignment="Top" Width="260"/>
+        <Button x:Name="buttonNew" Content="New" HorizontalAlignment="Left" Height="31" Margin="371,351,0,0" VerticalAlignment="Top" Width="64" Click="New_Click"/>
+        <Button x:Name="buttonEdit" Content="Edit" HorizontalAlignment="Left" Height="31" Margin="449,351,0,0" VerticalAlignment="Top" Width="65" Click="Edit_Click"/>
+        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Height="31" Margin="529,351,0,0" VerticalAlignment="Top" Width="60" Click="Delete_Click"/>
+
     </Grid>
 </Window>
