@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MovieRentalWPF.Model;
 using MovieRentalWPF.DAO;
 using MovieRentalWPF.SQL;
+using System.ComponentModel;
 
 namespace MovieRentalWPF
 {
@@ -99,5 +100,25 @@ namespace MovieRentalWPF
 
         }
 
+        private void comboYear_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+
+            for (int i = 0, start_year=1927; start_year + i <= 2017; i++)
+                data.Add((start_year + i).ToString());
+
+            // Cast the sender object as ComboBox object
+            var comboBox = sender as ComboBox;
+
+            comboBox.ItemsSource = data.OrderByDescending(c => c).ToArray();
+
+            /*
+            SortDescription sd = new SortDescription("Name", ListSortDirection.Ascending);
+            comboBox.Items.SortDescriptions.Add(sd);
+
+            comboBox1.Items.AddRange(a.OrderBy(c => c).ToArray());
+            */
+
+        }
     }
 }

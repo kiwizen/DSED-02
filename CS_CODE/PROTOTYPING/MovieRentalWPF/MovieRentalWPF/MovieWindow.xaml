@@ -22,36 +22,46 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="277" Margin="434,12,0,0" VerticalAlignment="Top" Width="324"/>
 
-        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="598,485,0,0" VerticalAlignment="Top" Width="160" FontSize="16"
-            Click="ExitWindow"/>
-        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="293" Margin="434,12,0,0" VerticalAlignment="Top" Width="324" IsEnabled="False">
-            <Label Content="Title :" HorizontalAlignment="Left" Height="27" Margin="7,4,0,0" VerticalAlignment="Top" Width="78"/>
-            <Label Content="Year :" HorizontalAlignment="Left" Height="34" Margin="102,3,0,0" VerticalAlignment="Top" Width="65"/>
-            <Label Content="Rating :" HorizontalAlignment="Left" Height="30" Margin="10,64,0,0" VerticalAlignment="Top" Width="79"/>
-            <Label Content="Copies:
-                   " HorizontalAlignment="Left" Height="28" Margin="194,64,0,0" VerticalAlignment="Top" Width="67"/>
-            <Label Content="Genre :" HorizontalAlignment="Left" Height="30" Margin="13,211,0,0" VerticalAlignment="Top" Width="100"/>
-            <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="271"/>
-            <ComboBox x:Name="comboYear" HorizontalAlignment="Left" Height="21" Margin="167,10,0,0" VerticalAlignment="Top" Width="114" />
-            <TextBox x:Name="txtCopies" HorizontalAlignment="Left" Height="29" Margin="261,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="53"/>
-            <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Height="24" Margin="82,216,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
+        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="277" Margin="434,12,0,0" VerticalAlignment="Top" Width="324">
+            <Label Content="Title :" HorizontalAlignment="Left" Height="27" Margin="7,4,0,0" VerticalAlignment="Top" Width="38"/>
+            <Label Content="Year :" HorizontalAlignment="Left" Height="34" Margin="8,33,0,0" VerticalAlignment="Top" Width="65"/>
+            <Label Content="Rating :" HorizontalAlignment="Left" Height="30" Margin="141,33,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content="Copies :" HorizontalAlignment="Left" Height="28" Margin="204,70,0,0" VerticalAlignment="Top" Width="67"/>
+            <Label Content="Genre :" HorizontalAlignment="Left" Height="30" Margin="13,70,0,0" VerticalAlignment="Top" Width="53"/>
+            <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="20" Margin="50,10,0,0" TextWrapping="Wrap" Text="txtTite" VerticalAlignment="Top" Width="264"/>
+            <TextBox x:Name="txtCopies" HorizontalAlignment="Left" Height="29" Margin="255,73,0,0" TextWrapping="Wrap" Text="txtCopies" VerticalAlignment="Top" Width="53"/>
+            <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Height="43" Margin="58,74,0,0" TextWrapping="Wrap" Text="txtGenre" VerticalAlignment="Top" Width="128"/>
+            <!-- -->
+            <ComboBox x:Name="comboYear" HorizontalAlignment="Left" Height="21" Margin="50,37,0,0" VerticalAlignment="Top" Width="71"
+                      Loaded="comboYear_Loaded"/>
+            <ComboBox x:Name="comboRate" HorizontalAlignment="Left" Height="25" Margin="210,39,0,0" VerticalAlignment="Top" Width="101">
+                <ComboBoxItem Content="PG"/>                
+                <ComboBoxItem Content="G"/>
+                <ComboBoxItem Content="M"/>
+                <ComboBoxItem Content="R"/>
+                <ComboBoxItem Content="R-16"/>
+            </ComboBox>
+            <!-- -->
             <TextBox x:Name="txtCost" HorizontalAlignment="Left" Height="14" Margin="25,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
                 IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
             <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="14" Margin="25,320,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
                 IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
-            <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Height="26" Margin="13,259,0,0" VerticalAlignment="Top" Width="78" Click="Save_Click"/>
-            <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="100,259,0,0" VerticalAlignment="Top" Width="83" Click="Cancel_Click"/>
-            <ComboBox HorizontalAlignment="Left" Height="28" Margin="80,64,0,0" VerticalAlignment="Top" Width="101"/>
+
+            <Button x:Name="buttonSave" Content="Save" HorizontalAlignment="Left" Height="26" Margin="141,246,0,0" VerticalAlignment="Top" Width="78" Click="Save_Click"/>
+            <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="228,246,0,0" VerticalAlignment="Top" Width="83" Click="Cancel_Click"/>
             <Label Content="Plot :
-                   " HorizontalAlignment="Left" Height="33" Margin="10,99,0,0" VerticalAlignment="Top" Width="56"/>
-            <TextBox HorizontalAlignment="Left" Height="99" Margin="58,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256"/>
+                   " HorizontalAlignment="Left" Height="33" Margin="10,128,0,0" VerticalAlignment="Top" Width="56"/>
+            <TextBox x:Name="txtPlot" HorizontalAlignment="Left" Height="99" Margin="58,132,0,0" TextWrapping="Wrap" Text="txtPlot" VerticalAlignment="Top" Width="256"/>
 
         </Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="293" Margin="434,12,0,0" VerticalAlignment="Top" Width="324"/>
-        <Button x:Name="buttonNew" Content="New" HorizontalAlignment="Left" Height="31" Margin="438,329,0,0" VerticalAlignment="Top" Width="64" Click="New_Click"/>
-        <Button x:Name="buttonEdit" Content="Edit" HorizontalAlignment="Left" Height="31" Margin="516,329,0,0" VerticalAlignment="Top" Width="65" Click="Edit_Click"/>
-        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Height="31" Margin="596,329,0,0" VerticalAlignment="Top" Width="60" Click="Delete_Click"/>
+
+
+        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="598,485,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="ExitWindow"/>
+        <Button x:Name="buttonNew" Content="New" HorizontalAlignment="Left" Height="31" Margin="528,342,0,0" VerticalAlignment="Top" Width="64" Click="New_Click"/>
+        <Button x:Name="buttonEdit" Content="Edit" HorizontalAlignment="Left" Height="31" Margin="606,342,0,0" VerticalAlignment="Top" Width="65" Click="Edit_Click"/>
+        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Height="31" Margin="686,342,0,0" VerticalAlignment="Top" Width="60" Click="Delete_Click"/>
 
     </Grid>
 </Window>
