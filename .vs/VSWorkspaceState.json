@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\CS_CODE",
-    "\\CS_CODE\\INITIAL",
     "\\CS_CODE\\INITIAL\\FilePathConsoleApp",
     "\\CS_CODE\\INITIAL\\TEST",
     "\\CS_CODE\\INITIAL\\TEST\\RentVideoWPF",
-    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF"
+    "\\CS_CODE\\INITIAL\\TEST\\TestTableAppWPF",
+    "\\CS_CODE\\PROTOTYPING",
+    "\\CS_CODE\\PROTOTYPING\\MovieRentalWPF"
   ],
-  "SelectedNode": "\\CS_CODE\\INITIAL\\TEST\\RentVideoWPF\\RentVideoWPF.sln",
+  "SelectedNode": "\\CS_CODE\\PROTOTYPING\\MovieRentalWPF\\MovieRentalWPF.sln",
   "PreviewInSolutionExplorer": false
 }

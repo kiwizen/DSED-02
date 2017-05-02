@@ -52,7 +52,7 @@ namespace MovieRentalWPF
 
             ViewTable.Items.Add(new
             {
-                ID_Title = movie.ID,
+                ID_Title = movie.Title,
                 ID_Year = movie.Year,
                 ID_Genre = movie.Genre,
                 ID_Rating = movie.Rating,
@@ -98,5 +98,6 @@ namespace MovieRentalWPF
         {
 
         }
+
     }
 }
