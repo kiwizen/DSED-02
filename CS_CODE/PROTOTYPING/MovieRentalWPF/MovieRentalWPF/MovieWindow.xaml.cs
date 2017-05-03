@@ -35,12 +35,16 @@ namespace MovieRentalWPF
 
         private void initializeMovieRatingComboBox()
         {
+            
             List<string> data = new List<string>();
 
             foreach (var item in comboRate.Items)
                 data.Add(((ComboBoxItem)item).Content.ToString());
 
             comboRate.Items.Clear();
+            
+            //comboRate.ItemsSource = null;
+
             comboRate.ItemsSource = data.OrderByDescending(c => c).ToArray();
         }
 
