@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MovieRating>
+  <Rating Naming="PG"/>
+  <Rating Naming="G"/>
+  <Rating Naming="M"/>
+  <Rating Naming="R"/>
+  <Rating Naming="R-13"/>
+  <Rating Naming="R-16"/>
+</MovieRating>

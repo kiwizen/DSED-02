@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MovieRentalWPF"
         mc:Ignorable="d"
         Title="Movie Window" Height="600" Width="800">
+
     <Grid>
         <ListView x:Name="ViewTable" 
             HorizontalAlignment="Left" Height="527" Margin="18,12,0,0" VerticalAlignment="Top" Width="395" MouseLeftButtonUp="SelectedMovieClick">
@@ -24,7 +25,7 @@
         </ListView>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="277" Margin="434,12,0,0" VerticalAlignment="Top" Width="324"/>
 
-        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="277" Margin="434,12,0,0" VerticalAlignment="Top" Width="324">
+        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="277" Margin="434,12,0,0" VerticalAlignment="Top" Width="324" IsEnabled="False">
             <Label Content="Title :" HorizontalAlignment="Left" Height="27" Margin="7,4,0,0" VerticalAlignment="Top" Width="38"/>
             <Label Content="Year :" HorizontalAlignment="Left" Height="34" Margin="8,33,0,0" VerticalAlignment="Top" Width="65"/>
             <Label Content="Rating :" HorizontalAlignment="Left" Height="30" Margin="141,33,0,0" VerticalAlignment="Top" Width="79"/>
@@ -37,11 +38,13 @@
             <ComboBox x:Name="comboYear" HorizontalAlignment="Left" Height="21" Margin="50,37,0,0" VerticalAlignment="Top" Width="71"
                       Loaded="comboYear_Loaded"/>
             <ComboBox x:Name="comboRate" HorizontalAlignment="Left" Height="25" Margin="210,39,0,0" VerticalAlignment="Top" Width="101">
-                <ComboBoxItem Content="PG"/>                
+                <ComboBoxItem Content="PG"/>
                 <ComboBoxItem Content="G"/>
                 <ComboBoxItem Content="M"/>
                 <ComboBoxItem Content="R"/>
+                <ComboBoxItem Content="R-13"/>
                 <ComboBoxItem Content="R-16"/>
+                <ComboBoxItem Content="PG-13"/>
             </ComboBox>
             <!-- -->
             <TextBox x:Name="txtCost" HorizontalAlignment="Left" Height="14" Margin="25,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 

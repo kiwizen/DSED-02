@@ -52,5 +52,10 @@ namespace MovieRentalWPF.SQL
 
             }
         }
+
+        public void UpdateData(MovieClass movie)
+        {
+            //private string updateMovie = 
+        }
     }
 }

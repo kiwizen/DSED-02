@@ -87,7 +87,6 @@ namespace MovieRentalWPF
             txtContactNo.Text = item.ID_ContactNo;
             txtAddress.Text = item.ID_Address;
             txtID.Text = item.ID;
-
         }
 
         private void New_Click(object sender, RoutedEventArgs e)
