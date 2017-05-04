@@ -39,7 +39,6 @@ namespace MovieRentalWPF.SQL
                 catch (Exception Error)
                 {
                     throw new Exception("SQL Excution Error" + Error);
-
                 }
                 finally
                 {
@@ -69,7 +68,6 @@ namespace MovieRentalWPF.SQL
                 catch (Exception Error)
                 {
                     throw new Exception("SQL Excution Error" + Error);
-
                 }
                 finally
                 {
@@ -127,7 +125,6 @@ namespace MovieRentalWPF.SQL
             }
             return data;
         }
-
 
         public void Update(DAOBaseClass dao)
         {
