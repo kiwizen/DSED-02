@@ -77,12 +77,7 @@ namespace MovieRentalWPF.SQL
             }
 
         }
-        #region to be implemented in the future
-        public DAOBaseClass Get(int ID)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
+
         public IEnumerable<DAOBaseClass> Get()
         {
             List<MovieClass> data = new List<MovieClass>();
@@ -164,6 +159,12 @@ namespace MovieRentalWPF.SQL
             }
             
         }
+        #region to be implemented in the future
+        public DAOBaseClass Get(int ID)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
         #region Old Method not used in the assignment
         public void UpdateData(MovieClass movie)
