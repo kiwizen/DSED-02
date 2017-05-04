@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieRentalWPF.DAO
 {
-    public class MovieClass
+    public class MovieClass : DAOBaseClass
     {
-        public string ID { get; set; }
+        //public string ID { get; set; }
         public string Rating { get; set; }
         public string Title { get; set; }
         public string Year { get; set; }

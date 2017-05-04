@@ -57,6 +57,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAO\DAOBaseClass.cs" />
+    <Compile Include="DAO\IDAOBaseClass.cs" />
     <Compile Include="SQL\CustomersSQLClass.cs" />
     <Compile Include="SQL\MoviesSQLClass.cs" />
     <Compile Include="SQL\RentedMoviesSQLClass.cs" />

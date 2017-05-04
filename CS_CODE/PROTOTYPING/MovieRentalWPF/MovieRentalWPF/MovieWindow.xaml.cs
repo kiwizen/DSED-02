@@ -27,55 +27,22 @@ namespace MovieRentalWPF
         public MovieWindow()
         {
             InitializeComponent();
-            initializeAllMovieViewListTable();
+            //initializeAllMovieViewListTable();
+
+            initializeMovieListView();
 
             initializeMovieRatingComboBox();
+
             ClearText();
         }
 
-        private void initializeMovieRatingComboBox()
+        private void initializeMovieListView()
         {
-            
-            List<string> data = new List<string>();
-
-            foreach (var item in comboRate.Items)
-                data.Add(((ComboBoxItem)item).Content.ToString());
-
-            comboRate.Items.Clear();
-            
-            //comboRate.ItemsSource = null;
-
-            comboRate.ItemsSource = data.OrderByDescending(c => c).ToArray();
-        }
-
-        private void initializeAllMovieViewListTable()
-        {
-            viewTableModel = new ViewModelClass();
-            viewTableModel.AddMethod = Add;
-            viewTableModel.ClearMethod = Clear;
-
-            MoviesSQLClass service = new MoviesSQLClass();
-
-            service.RetrieveAllMovies(viewTableModel);
-        }
-
-        private void comboYear_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<string> data = new List<string>();
-
-            for (int i = 0, start_year = 1927; start_year + i <= 2017; i++)
-                data.Add((start_year + i).ToString());
-
-            // Cast the sender object as ComboBox object
-            var comboBox = sender as ComboBox;
-
-            comboBox.ItemsSource = data.OrderByDescending(c => c).ToArray();
-
-        }
-
-        private void Clear()
-        {
-            ViewTable.Items.Clear();
+            MoviesSQLClass movieDAO = new MoviesSQLClass();
+             
+            Clear();
+            foreach (var obj in movieDAO.Get())
+                Add(obj);
         }
 
         private void Add(object p)
@@ -97,10 +64,43 @@ namespace MovieRentalWPF
 
         }
 
+        private void initializeMovieRatingComboBox()
+        {
+            
+            List<string> data = new List<string>();
+
+            foreach (var item in comboRate.Items)
+                data.Add(((ComboBoxItem)item).Content.ToString());
+
+            comboRate.Items.Clear();
+            
+            //comboRate.ItemsSource = null;
+
+            comboRate.ItemsSource = data.OrderByDescending(c => c).ToArray();
+        }
+
+        private void comboYear_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+
+            for (int i = 0, start_year = 1927; start_year + i <= DateTime.Now.Year; i++)
+                data.Add((start_year + i).ToString());
+
+            // Cast the sender object as ComboBox object
+            var comboBox = sender as ComboBox;
+
+            comboBox.ItemsSource = data.OrderByDescending(c => c).ToArray();
+
+        }
 
         private void SelectedMovieClick(object sender, MouseButtonEventArgs e)
         {
-            dynamic item = ViewTable.SelectedItems[0];
+            ListView view = sender as ListView;
+
+            if (view.SelectedItem is null) return;
+
+
+            dynamic item = view.SelectedItems[0];
             txtTitle.Text = item.ID_Title;
             txtGenre.Text = item.ID_Genre;
             txtCopies.Text = item.ID_Copies;
@@ -115,14 +115,40 @@ namespace MovieRentalWPF
             txtID.Text = item.ID;
         }
 
-
         private void ExitWindow(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            //todo: validate screen fields
+
+
+
+            //todo: create a Movie dao class 
+            MovieClass movie = new MovieClass();
+            movie.ID = txtID.Text;
+            movie.Title = txtTitle.Text;
+            movie.Rating = comboRate.SelectedItem.ToString();
+            movie.Year = comboYear.SelectedItem.ToString();
+            movie.Plot = txtPlot.Text;
+            movie.Copies = txtCopies.Text;
+            movie.Genre = txtGenre.Text;
+
+            //todo: check movie id, create a record if blank, else update the record
+            //
+            MoviesSQLClass sql = new MoviesSQLClass();
+            if(movie.ID == string.Empty)
+            {
+                sql.Create(movie);
+            }
+            else
+            {
+                sql.Update(movie);
+            }
+            initializeMovieListView();
             SetMovieGrid(false);
         }
 
@@ -154,6 +180,12 @@ namespace MovieRentalWPF
                 MessageBox.Show("Error !!!\nPlease select a Customer record first.");
                 return;
             }
+            MovieClass movie = new MovieClass();
+            movie.ID = txtID.Text;
+            MoviesSQLClass sql = new MoviesSQLClass();
+            sql.Delete(movie);
+            initializeMovieListView();
+            ClearText();
         }
 
         private void SetMovieGrid(bool flag)
@@ -190,6 +222,27 @@ namespace MovieRentalWPF
             EditMovieGrid.IsEnabled = flag;
         }
 
+        #region Old Method Not Used in the Assigment 
+        private void Clear()
+        {
+            ViewTable.Items.Clear();
+        }
+
+        private void initializeAllMovieViewListTable()
+        {
+            viewTableModel = new ViewModelClass();
+            viewTableModel.AddMethod = Add;
+            viewTableModel.ClearMethod = Clear;
+
+            MoviesSQLClass service = new MoviesSQLClass();
+
+            service.RetrieveAllMovies(viewTableModel);
+            
+
+
+
+        }
+        #endregion
 
     }
 }

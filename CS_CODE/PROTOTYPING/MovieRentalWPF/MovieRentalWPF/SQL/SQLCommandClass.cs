@@ -13,6 +13,6 @@ namespace MovieRentalWPF.SQL
 
         public string DefaultConnectionName { get;  } =
             System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        
+
     }
 }

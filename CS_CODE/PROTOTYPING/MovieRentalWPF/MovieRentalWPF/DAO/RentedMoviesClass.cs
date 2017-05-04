@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieRentalWPF.DAO
 {
-    class RentedMoviesClass
+    class RentedMoviesClass : DAOBaseClass
     {
     }
 }
