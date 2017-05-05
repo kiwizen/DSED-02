@@ -26,22 +26,17 @@ namespace MovieRentalWPF
         public CustomerWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            InitializeDefaultSetting();
+
+            initializeCustomerListView();
+        }
+
+        private void InitializeDefaultSetting()
+        {
             ClearText();
             SaveControl(false);
             EditControl(true);
-            initializeAllCustomerViewListTable();
-        }
-
-        private void initializeAllCustomerViewListTable()
-        {
-            viewTableModel = new ViewModelClass();
-            viewTableModel.AddMethod = Add;
-            viewTableModel.ClearMethod = Clear;
-
-            CustomersSQLClass service = new CustomersSQLClass();
-
-            service.RetrieveAllCustomers(viewTableModel);
         }
 
         private void ClearText()
@@ -53,27 +48,26 @@ namespace MovieRentalWPF
             txtID.Text = string.Empty;
         }
 
-        private void Clear()
+        private void initializeCustomerListView()
         {
+            CustomersSQLClass customerDAO = new CustomersSQLClass();
+
             ViewTable.Items.Clear();
-        }
+            ClearText();
 
-        private void Add(object p)
-        {
-            //ViewTable.Items.Add(p);
-            CustomerClass customer = p as CustomerClass;
-
-            ViewTable.Items.Add(new 
+            foreach (var obj in customerDAO.Get())
             {
-                ID_FirstName = customer.FirstName,
-                ID_SurName = customer.LastName,
-                ID_ContactNo = customer.Phone,
-                ID_Address = customer.Address,
-                ID = customer.ID
-            });
-            
+                CustomerClass customer = obj as CustomerClass;
+                ViewTable.Items.Add(new
+                {
+                    ID_FirstName = customer.FirstName,
+                    ID_SurName = customer.LastName,
+                    ID_ContactNo = customer.Phone,
+                    ID_Address = customer.Address,
+                    ID = customer.ID
+                });
+            }
         }
-
         private void ExitWindow(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -81,7 +75,11 @@ namespace MovieRentalWPF
 
         private void SelectedCustomerClick(object sender, MouseButtonEventArgs e)
         {
-            dynamic item = ViewTable.SelectedItems[0];
+            ListView view = sender as ListView;
+
+            if (view.SelectedItem is null) return;
+
+            dynamic item = view.SelectedItems[0];
             txtFirstName.Text = item.ID_FirstName;
             txtLastName.Text = item.ID_SurName;
             txtContactNo.Text = item.ID_ContactNo;
@@ -122,7 +120,14 @@ namespace MovieRentalWPF
                 MessageBox.Show("Error !!!\nPlease select a Customer record first.");
                 return;
             }
-            //EditCustomerGrid.IsEnabled = true;
+            CustomerClass customer = new CustomerClass();
+            customer.ID = txtID.Text;
+
+            CustomersSQLClass sql = new CustomersSQLClass();
+            sql.Delete(customer);
+
+            initializeCustomerListView();
+            ClearText();
         }
 
         private void EditControl(bool flag)
@@ -141,6 +146,29 @@ namespace MovieRentalWPF
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            //todo: validate screen fields
+
+
+
+            //
+            CustomerClass customer = new CustomerClass();
+            customer.ID = txtID.Text;
+            customer.FirstName = txtFirstName.Text;
+            customer.LastName = txtLastName.Text;
+            customer.Phone = txtContactNo.Text;
+            customer.Address = txtAddress.Text;
+
+            //
+            CustomersSQLClass sql = new CustomersSQLClass();
+            if (customer.ID == string.Empty)
+            {
+                sql.Create(customer);
+            }
+            else
+            {
+                sql.Update(customer);
+            }
+            initializeCustomerListView();
             SetCustomerGrid(false);
         }
 
@@ -148,6 +176,36 @@ namespace MovieRentalWPF
         {
             SetCustomerGrid(false);
         }
+        #region Obsolete Method for the assignment => clean up later
+        private void Clear()
+        {
+            ViewTable.Items.Clear();
+        }
+        private void initializeAllCustomerViewListTable()
+        {
+            viewTableModel = new ViewModelClass();
+            viewTableModel.AddMethod = Add;
+            viewTableModel.ClearMethod = Clear;
 
+            CustomersSQLClass service = new CustomersSQLClass();
+
+            service.RetrieveAllCustomers(viewTableModel);
+        }
+        private void Add(object p)
+        {
+            //ViewTable.Items.Add(p);
+            CustomerClass customer = p as CustomerClass;
+
+            ViewTable.Items.Add(new
+            {
+                ID_FirstName = customer.FirstName,
+                ID_SurName = customer.LastName,
+                ID_ContactNo = customer.Phone,
+                ID_Address = customer.Address,
+                ID = customer.ID
+            });
+
+        }
+        #endregion
     }
 }

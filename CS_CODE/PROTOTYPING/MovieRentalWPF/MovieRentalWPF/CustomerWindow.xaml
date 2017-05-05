@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRentalWPF"
         mc:Ignorable="d"
-        Title="Customer Window" Height="600" Width="800">
+        Title="Customer Window" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <ListView x:Name="ViewTable" 
             HorizontalAlignment="Left" Height="527" Margin="20,12,0,0" VerticalAlignment="Top" Width="338" MouseLeftButtonUp="SelectedCustomerClick">

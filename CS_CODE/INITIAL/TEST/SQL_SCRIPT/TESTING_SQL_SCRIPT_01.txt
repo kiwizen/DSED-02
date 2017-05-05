@@ -8,3 +8,6 @@ UPDATE [dbo].[TestTable] SET [NAME] = '0AName2',[TEXT] = 'AText2' WHERE ID = 2
 
 /****** SQL Script to delete a record into table  ******/
 DELETE FROM [dbo].[TestTable] WHERE ID=2
+
+
+"INSERT INTO dbo.Movies ([Rating],[Title]),[Year],[Copies],[Plot],[Genre]) VALUES (@Rating, @Title, @Year, @Copies, @Plot, @Genre)"

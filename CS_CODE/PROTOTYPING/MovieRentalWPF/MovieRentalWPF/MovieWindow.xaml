@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRentalWPF"
         mc:Ignorable="d"
-        Title="Movie Window" Height="600" Width="800">
+        Title="Movie Window" Height="600" Width="800" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <ListView x:Name="ViewTable" 

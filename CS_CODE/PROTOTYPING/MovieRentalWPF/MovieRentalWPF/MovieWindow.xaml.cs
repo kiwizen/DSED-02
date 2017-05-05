@@ -27,58 +27,64 @@ namespace MovieRentalWPF
         public MovieWindow()
         {
             InitializeComponent();
-            //initializeAllMovieViewListTable();
+
+            InitializeDefaultSetting();
 
             initializeMovieListView();
 
-            initializeMovieRatingComboBox();
-
+            initializeMovieRatingComboBox();           
+        }
+        private void ClearText()
+        {
+            txtTitle.Text = string.Empty;
+            txtGenre.Text = string.Empty;
+            txtCopies.Text = string.Empty;
+            txtPlot.Text = string.Empty;
+            txtID.Text = string.Empty;
+            txtCost.Text = string.Empty;
+        }
+        private void InitializeDefaultSetting()
+        {
             ClearText();
+            SaveControl(false);
+            EditControl(true);
         }
 
         private void initializeMovieListView()
         {
             MoviesSQLClass movieDAO = new MoviesSQLClass();
-             
-            Clear();
+
+            ViewTable.Items.Clear();
+            ClearText();
+
             foreach (var obj in movieDAO.Get())
-                Add(obj);
-        }
-
-        private void Add(object p)
-        {
-            //ViewTable.Items.Add(p);
-            MovieClass movie = p as MovieClass;
-
-            ViewTable.Items.Add(new
             {
-                ID_Title = movie.Title,
-                ID_Year = movie.Year,
-                ID_Genre = movie.Genre,
-                ID_Rating = movie.Rating,
-                ID_Copies = movie.Copies,
-                ID_Plot = movie.Plot,
-                ID_Cost = movie.Rental_Cost,
-                ID = movie.ID
-            });
-
+                MovieClass movie = obj as MovieClass;
+                ViewTable.Items.Add(new
+                {
+                    ID_Title = movie.Title,
+                    ID_Year = movie.Year,
+                    ID_Genre = movie.Genre,
+                    ID_Rating = movie.Rating,
+                    ID_Copies = movie.Copies,
+                    ID_Plot = movie.Plot,
+                    ID_Cost = movie.Rental_Cost,
+                    ID = movie.ID
+                });
+            }
         }
-
+        #region The following code is not effective, need to rewrite it after the assignment
         private void initializeMovieRatingComboBox()
-        {
-            
+        {           
             List<string> data = new List<string>();
 
             foreach (var item in comboRate.Items)
                 data.Add(((ComboBoxItem)item).Content.ToString());
 
-            comboRate.Items.Clear();
-            
-            //comboRate.ItemsSource = null;
-
+            comboRate.Items.Clear();            
             comboRate.ItemsSource = data.OrderByDescending(c => c).ToArray();
         }
-
+        #endregion
         private void comboYear_Loaded(object sender, RoutedEventArgs e)
         {
             List<string> data = new List<string>();
@@ -98,7 +104,6 @@ namespace MovieRentalWPF
             ListView view = sender as ListView;
 
             if (view.SelectedItem is null) return;
-
 
             dynamic item = view.SelectedItems[0];
             txtTitle.Text = item.ID_Title;
@@ -127,7 +132,7 @@ namespace MovieRentalWPF
 
 
 
-            //todo: create a Movie dao class 
+            //
             MovieClass movie = new MovieClass();
             movie.ID = txtID.Text;
             movie.Title = txtTitle.Text;
@@ -137,7 +142,6 @@ namespace MovieRentalWPF
             movie.Copies = txtCopies.Text;
             movie.Genre = txtGenre.Text;
 
-            //todo: check movie id, create a record if blank, else update the record
             //
             MoviesSQLClass sql = new MoviesSQLClass();
             if(movie.ID == string.Empty)
@@ -158,8 +162,7 @@ namespace MovieRentalWPF
         }
 
         private void New_Click(object sender, RoutedEventArgs e)
-        {
-            ClearText();
+        {       
             SetMovieGrid(true);
         }
 
@@ -182,30 +185,24 @@ namespace MovieRentalWPF
             }
             MovieClass movie = new MovieClass();
             movie.ID = txtID.Text;
+
             MoviesSQLClass sql = new MoviesSQLClass();
             sql.Delete(movie);
+
             initializeMovieListView();
             ClearText();
         }
 
         private void SetMovieGrid(bool flag)
         {
-            SaveControl(flag);
-            EditControl(!flag);
-            if (flag)
-                txtTitle.Focus();
-            else
-                ClearText();
-        }
+            ClearText();
 
-        private void ClearText()
-        {
-            txtTitle.Text = string.Empty;
-            txtGenre.Text = string.Empty;
-            txtCopies.Text = string.Empty;
-            txtPlot.Text = string.Empty;
-            txtID.Text = string.Empty;
-            txtCost.Text = string.Empty;
+            SaveControl(flag);
+
+            EditControl(!flag);
+
+            if (flag) txtTitle.Focus();
+                
         }
 
         private void EditControl(bool flag)
@@ -222,12 +219,7 @@ namespace MovieRentalWPF
             EditMovieGrid.IsEnabled = flag;
         }
 
-        #region Old Method Not Used in the Assigment 
-        private void Clear()
-        {
-            ViewTable.Items.Clear();
-        }
-
+        #region Obsolete Method for the assignment => clean up later
         private void initializeAllMovieViewListTable()
         {
             viewTableModel = new ViewModelClass();
@@ -235,12 +227,28 @@ namespace MovieRentalWPF
             viewTableModel.ClearMethod = Clear;
 
             MoviesSQLClass service = new MoviesSQLClass();
+            service.RetrieveAllMovies(viewTableModel);        
+        }
+        private void Clear()
+        {
+            ViewTable.Items.Clear();
+        }
+        private void Add(object p)
+        {
+            //ViewTable.Items.Add(p);
+            MovieClass movie = p as MovieClass;
 
-            service.RetrieveAllMovies(viewTableModel);
-            
-
-
-
+            ViewTable.Items.Add(new
+            {
+                ID_Title = movie.Title,
+                ID_Year = movie.Year,
+                ID_Genre = movie.Genre,
+                ID_Rating = movie.Rating,
+                ID_Copies = movie.Copies,
+                ID_Plot = movie.Plot,
+                ID_Cost = movie.Rental_Cost,
+                ID = movie.ID
+            });
         }
         #endregion
 
