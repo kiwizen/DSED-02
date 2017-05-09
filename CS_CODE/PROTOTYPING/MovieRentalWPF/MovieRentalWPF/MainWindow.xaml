@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieRentalWPF"
         mc:Ignorable="d"
-        Title="DSED 02 Movie Rental System" Height="600" Width="800">
+        Title="DSED 02 Movie Rental System" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Button Content="Customer Database" HorizontalAlignment="Left" Height="88" Margin="26,30,0,0" VerticalAlignment="Top" Width="194" FontSize="16" Click="OpenCustomerWindow"/>
         <Button Content="Movie Database" HorizontalAlignment="Left" Height="84" Margin="26,154,0,0" VerticalAlignment="Top" Width="194" FontSize="16" Click="OpenMovieWindow"/>

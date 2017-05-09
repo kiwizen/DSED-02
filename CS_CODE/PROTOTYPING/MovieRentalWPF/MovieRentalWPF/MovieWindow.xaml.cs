@@ -195,13 +195,16 @@ namespace MovieRentalWPF
 
         private void SetMovieGrid(bool flag)
         {
-            ClearText();
+            if(txtID.Text == string.Empty) ClearText();
 
             SaveControl(flag);
 
             EditControl(!flag);
 
-            if (flag) txtTitle.Focus();
+            if (flag)
+                txtTitle.Focus();
+            else
+                ClearText();
                 
         }
 
@@ -227,7 +230,7 @@ namespace MovieRentalWPF
             viewTableModel.ClearMethod = Clear;
 
             MoviesSQLClass service = new MoviesSQLClass();
-            service.RetrieveAllMovies(viewTableModel);        
+            //service.RetrieveAllMovies(viewTableModel);        
         }
         private void Clear()
         {

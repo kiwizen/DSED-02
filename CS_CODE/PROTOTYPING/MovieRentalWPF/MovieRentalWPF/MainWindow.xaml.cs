@@ -26,7 +26,6 @@ namespace MovieRentalWPF
         public MainWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void OpenCustomerWindow(object sender, RoutedEventArgs e)

@@ -12,6 +12,7 @@ namespace MovieRentalWPF.SQL
     class MoviesSQLClass : SQLCommandClass, IDAOBaseClass
     {
         private string ViewAllMovies = "SELECT * FROM VIEW_ALL_MOVIES";
+        private string ViewSelectAvailableMovies = "SELECT * FROM VIEW_SELECT_AVAIABLE_MOVIES";
 
         public void Create(DAOBaseClass dao)
         {
@@ -80,6 +81,16 @@ namespace MovieRentalWPF.SQL
 
         public IEnumerable<DAOBaseClass> Get()
         {
+            return Get(ViewAllMovies);
+        }
+
+        public IEnumerable<MovieClass> GetMovieForRent()
+        {
+            return Get(ViewAvaialbeMovies);
+        }
+
+        private IEnumerable<MovieClass> Get(string SQL)
+        {
             List<MovieClass> data = new List<MovieClass>();
 
             using (SqlConnection connection = new SqlConnection(DefaultConnectionName))
@@ -87,7 +98,7 @@ namespace MovieRentalWPF.SQL
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(ViewAllMovies, connection))
+                    using (SqlCommand command = new SqlCommand(SQL, connection))
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         //model.Clear();
@@ -159,6 +170,7 @@ namespace MovieRentalWPF.SQL
             }
             
         }
+
         #region to be implemented in the future
         public DAOBaseClass Get(int ID)
         {
@@ -167,12 +179,12 @@ namespace MovieRentalWPF.SQL
         #endregion
 
         #region Old Method not used in the assignment
-        public void UpdateData(MovieClass movie)
+        private void UpdateData(MovieClass movie)
         {
             //private string updateMovie = 
         }
 
-        public void RetrieveAllMovies(ViewModelClass model)
+        private void RetrieveAllMovies(ViewModelClass model)
         {
             using (SqlConnection connection = new SqlConnection(DefaultConnectionName))
             {
