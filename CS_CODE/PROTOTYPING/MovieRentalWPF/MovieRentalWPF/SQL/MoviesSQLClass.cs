@@ -12,7 +12,7 @@ namespace MovieRentalWPF.SQL
     class MoviesSQLClass : SQLCommandClass, IDAOBaseClass
     {
         private string ViewAllMovies = "SELECT * FROM VIEW_ALL_MOVIES";
-        private string ViewSelectAvailableMovies = "SELECT * FROM VIEW_SELECT_AVAIABLE_MOVIES";
+        private string ViewSelectAvailableMovies = "SELECT * FROM VIEW_SELECT_AVAILABLE_MOVIES";
 
         public void Create(DAOBaseClass dao)
         {
@@ -86,7 +86,7 @@ namespace MovieRentalWPF.SQL
 
         public IEnumerable<MovieClass> GetMovieForRent()
         {
-            return Get(ViewAvaialbeMovies);
+            return Get(ViewSelectAvailableMovies);
         }
 
         private IEnumerable<MovieClass> Get(string SQL)

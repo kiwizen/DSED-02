@@ -8,10 +8,10 @@
         Title="Issue Movie Window" Height="600" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="598,483,0,0" VerticalAlignment="Top" Width="160" FontSize="16"
+        <Button Content="Exit" HorizontalAlignment="Left" Height="54" Margin="594,19,0,0" VerticalAlignment="Top" Width="160" FontSize="16"
                 Click="ExitWindow"/>
-        <ListView x:Name="ViewTable" 
-            HorizontalAlignment="Left" Height="527" Margin="18,12,0,0" VerticalAlignment="Top" Width="395" MouseLeftButtonUp="SelectedMovieClick">
+        <ListView x:Name="MovieViewTable" 
+            HorizontalAlignment="Left" Height="243" Margin="20,306,0,0" VerticalAlignment="Top" Width="197" MouseLeftButtonUp="SelectedMovieClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding ID_Title}"/>
@@ -25,19 +25,19 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="245" Margin="434,12,0,0" VerticalAlignment="Top" Width="324" IsEnabled="False">
-            <Label Content="Title :" HorizontalAlignment="Left" Height="27" Margin="7,4,0,0" VerticalAlignment="Top" Width="38"/>
-            <Label Content="Year :" HorizontalAlignment="Left" Height="34" Margin="8,33,0,0" VerticalAlignment="Top" Width="65"/>
-            <Label Content="Rating :" HorizontalAlignment="Left" Height="30" Margin="141,33,0,0" VerticalAlignment="Top" Width="79"/>
-            <Label Content="Copies :" HorizontalAlignment="Left" Height="28" Margin="204,70,0,0" VerticalAlignment="Top" Width="67"/>
-            <Label Content="Genre :" HorizontalAlignment="Left" Height="30" Margin="13,70,0,0" VerticalAlignment="Top" Width="53"/>
-            <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="20" Margin="50,10,0,0" TextWrapping="Wrap" Text="txtTite" VerticalAlignment="Top" Width="264"/>
-            <TextBox x:Name="txtCopies" HorizontalAlignment="Left" Height="29" Margin="255,73,0,0" TextWrapping="Wrap" Text="txtCopies" VerticalAlignment="Top" Width="53"/>
-            <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Height="43" Margin="58,74,0,0" TextWrapping="Wrap" Text="txtGenre" VerticalAlignment="Top" Width="128"/>
+        <Grid x:Name="EditMovieGrid" HorizontalAlignment="Left" Height="242" Margin="467,304,0,0" VerticalAlignment="Top" Width="315" IsEnabled="False">
+            <Label Content="Title :" HorizontalAlignment="Left" Height="27" Margin="0,5,0,0" VerticalAlignment="Top" Width="38"/>
+            <Label Content="Year :" HorizontalAlignment="Left" Height="34" Margin="0,30,0,0" VerticalAlignment="Top" Width="65"/>
+            <Label Content="Rating :" HorizontalAlignment="Left" Height="30" Margin="127,33,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content="Copies :" HorizontalAlignment="Left" Height="28" Margin="192,66,0,0" VerticalAlignment="Top" Width="67"/>
+            <Label Content="Genre :" HorizontalAlignment="Left" Height="30" Margin="1,66,0,0" VerticalAlignment="Top" Width="53"/>
+            <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="20" Margin="50,10,0,0" TextWrapping="Wrap" Text="txtTite" VerticalAlignment="Top" Width="250"/>
+            <TextBox x:Name="txtCopies" HorizontalAlignment="Left" Height="29" Margin="243,69,0,0" TextWrapping="Wrap" Text="txtCopies" VerticalAlignment="Top" Width="53"/>
+            <TextBox x:Name="txtGenre" HorizontalAlignment="Left" Height="40" Margin="46,70,0,0" TextWrapping="Wrap" Text="txtGenre" VerticalAlignment="Top" Width="128"/>
             <!-- -->
             <ComboBox x:Name="comboYear" HorizontalAlignment="Left" Height="21" Margin="50,37,0,0" VerticalAlignment="Top" Width="71"
                 Loaded="comboYear_Loaded"/>
-            <ComboBox x:Name="comboRate" HorizontalAlignment="Left" Height="25" Margin="210,39,0,0" VerticalAlignment="Top" Width="101">
+            <ComboBox x:Name="comboRate" HorizontalAlignment="Left" Height="25" Margin="196,39,0,0" VerticalAlignment="Top" Width="101">
                 <ComboBoxItem Content="PG"/>
                 <ComboBoxItem Content="G"/>
                 <ComboBoxItem Content="M"/>
@@ -49,12 +49,60 @@
             <!-- -->
             <TextBox x:Name="txtCost" HorizontalAlignment="Left" Height="14" Margin="25,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
                 IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
-            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="14" Margin="25,320,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
+            <TextBox x:Name="txtMovieID" HorizontalAlignment="Left" Height="14" Margin="25,320,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
                 IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
-            <Label Content="Plot :                    " HorizontalAlignment="Left" Height="33" Margin="10,128,0,0" VerticalAlignment="Top" Width="56"/>
-            <TextBox x:Name="txtPlot" HorizontalAlignment="Left" Height="99" Margin="58,132,0,0" TextWrapping="Wrap" Text="txtPlot" VerticalAlignment="Top" Width="256"/>
+            <Label Content="Plot :                    " HorizontalAlignment="Left" Height="33" Margin="4,116,0,0" VerticalAlignment="Top" Width="56"/>
+            <TextBox x:Name="txtPlot" HorizontalAlignment="Left" Height="99" Margin="46,120,0,0" TextWrapping="Wrap" Text="txtPlot" VerticalAlignment="Top" Width="244"/>
 
         </Grid>
+        <Grid Height="271" Margin="285,278,329,0" VerticalAlignment="Top">
+            <ListView x:Name="IssueTable" Height="228" VerticalAlignment="Top" MouseLeftButtonUp="SelectedMovieClick" Margin="0,33,10,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding ID_Title}"/>
+                        <GridViewColumn Header="Year" DisplayMemberBinding="{Binding ID_Year}"/>
+                        <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding ID_Genre}"/>
+                        <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding ID_Rating}"/>
+                        <GridViewColumn Header="Copies" DisplayMemberBinding="{Binding ID_Copies}"/>
+                        <GridViewColumn Header="Plot" DisplayMemberBinding="{Binding ID_Plot}"/>
+                        <GridViewColumn Header="Rental_Cost" DisplayMemberBinding="{Binding ID_Cost}" Width="0"/>
+                        <GridViewColumn Header="Movie_ID" DisplayMemberBinding="{Binding ID}" Width="0"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="Movie to be issued" HorizontalAlignment="Left" Height="25" Margin="9,3,0,0" VerticalAlignment="Top" Width="175"/>
+        </Grid>
+        <Button Content="&gt;&gt;&gt;" HorizontalAlignment="Left" Height="58" Margin="222,346,0,0" VerticalAlignment="Top" Width="42" Click="AddToBasket" RenderTransformOrigin="2.357,-1.19"/>
+        <Button Content="&lt;&lt;&lt;" HorizontalAlignment="Left" Height="65" Margin="224,438,0,0" VerticalAlignment="Top" Width="42" Click="RemoveFromBasket"/>
+        <Button Content="Check Out" HorizontalAlignment="Left" Height="72" Margin="590,132,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label Content="Available Movie" HorizontalAlignment="Left" Height="28" Margin="16,278,0,0" VerticalAlignment="Top" Width="175"/>
+        <ListView x:Name="CustomerViewTable" 
+            HorizontalAlignment="Left" Height="252" Margin="20,12,0,0" VerticalAlignment="Top" Width="197" MouseLeftButtonUp="SelectedCustomerClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding ID_FirstName}"/>
+                    <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding ID_SurName}"/>
+                    <GridViewColumn Header="Contact No" DisplayMemberBinding="{Binding ID_ContactNo}"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding ID_Address}"/>
+                    <GridViewColumn Header="Cust_ID" DisplayMemberBinding="{Binding ID}" Width="0"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid x:Name="EditCustomerGrid" HorizontalAlignment="Left" Height="254" Margin="302,10,0,0" VerticalAlignment="Top" Width="220">
+            <Label Content="First Name :" HorizontalAlignment="Left" Height="27" Margin="0,5,0,0" VerticalAlignment="Top" Width="78"/>
+            <Label Content="Last Name :" HorizontalAlignment="Left" Height="34" Margin="0,35,0,0" VerticalAlignment="Top" Width="87"/>
+            <Label Content="Address:" HorizontalAlignment="Left" Height="28" Margin="2,60,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content="Contact No:" HorizontalAlignment="Left" Height="25" Margin="0,220,0,0" VerticalAlignment="Top" Width="78"/>
+            <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
+            <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="24" Margin="80,38,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="130" Margin="5,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="206"/>
+            <TextBox x:Name="txtContactNo" HorizontalAlignment="Left" Height="24" Margin="80,225,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="128"/>
+            <TextBox x:Name="txtCustomerID" HorizontalAlignment="Left" Height="14" Margin="25,311,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="52" 
+                IsReadOnly="True" IsEnabled="False" Visibility="Hidden"/>
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="252" Margin="284,12,0,0" VerticalAlignment="Top" Width="238">
+
+        </Border>
 
     </Grid>
 </Window>
